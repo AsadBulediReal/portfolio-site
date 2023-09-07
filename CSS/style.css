@@ -1,0 +1,323 @@
+html {
+  scrollbar-width: none;
+}
+
+:root {
+  /* CSS HEX */
+  --white: rgb(241, 241, 241);
+  --rich-black: rgb(17, 21, 28);
+  --rich-black-light: rgb(24, 28, 37);
+  --prussian-blue: rgb(33, 45, 64);
+  --charcoal: rgb(54, 65, 86);
+  --fluorescent-cyan: rgb(0, 255, 247);
+  --electric-blue: rgb(81, 229, 255);
+  --fiverr-green: rgb(29, 191, 115);
+  --upwork-green: rgb(111, 218, 68);
+  --word-length: 12;
+  --word-element-length: 312px;
+  scroll-behavior: smooth;
+  cursor: none;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--rich-black);
+  color: var(--white);
+  width: 80vw;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+a,
+.hide-cursor,
+button {
+  cursor: none;
+}
+
+section {
+  display: block;
+}
+
+/* scroll bar */
+
+#scrollPath {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 13px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: 10;
+}
+
+#progressBar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 13px;
+  height: 0%;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  z-index: 20;
+  animation: myscrollbar 5s linear infinite;
+}
+
+#progressBar::before,
+#progressBar::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #008aff, #00ffe7);
+  filter: blur(10px);
+}
+
+@keyframes myscrollbar {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+#progressBar::after {
+  filter: blur(30px);
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* nav bar */
+#extra {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin-bottom: 50px;
+}
+
+#logo {
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  padding: 1.5rem 16%;
+  justify-content: space-between;
+  align-items: baseline;
+  position: fixed;
+  background-color: var(--rich-black);
+  z-index: 8;
+  overflow: hidden;
+}
+
+.nav-container {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-container .nav-item a {
+  display: inline-block;
+  position: relative;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-container .nav-item a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--electric-blue);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-container .nav-item a:hover {
+  color: var(--electric-blue);
+  transition: 400ms ease-in-out;
+}
+
+.nav-container .nav-item a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-container .nav-item .color {
+  color: var(--electric-blue);
+  transition: 400ms ease-in-out;
+}
+
+.nav-container .nav-item .underline::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+/* hero section */
+
+#home {
+  display: flex;
+  margin: 8rem 0 0 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-container img {
+  position: relative;
+  width: 600px;
+  z-index: 100;
+}
+
+.info-about-me {
+  width: 50rem;
+  margin: 10rem 0 0 0;
+}
+
+.info-about-me p:nth-child(1) {
+  font-size: 2.2rem;
+  font-family: inherit;
+  font-weight: bold;
+  width: 15rem;
+  margin: 1rem 0 0.7rem -1rem;
+}
+
+.info-about-me h1 {
+  font-size: 4rem;
+  width: 36rem;
+}
+
+.info-about-me p:nth-child(3) {
+  font-size: 2rem;
+  font-family: inherit;
+  font-weight: bold;
+  width: 30rem;
+  margin: 1.3rem 0 1.5rem 0;
+}
+
+.info-about-me p #text-effect {
+  color: var(--fluorescent-cyan);
+  margin-left: 0.5rem;
+}
+
+.info-about-me p:nth-child(4) {
+  width: 40rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.info-about-me .icons {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  list-style: none;
+  align-items: baseline;
+}
+
+.info-about-me .icons .list-item {
+  border-color: var(--fluorescent-cyan);
+}
+.info-about-me .icons .list-item a {
+  font-size: 1.2rem;
+  display: inline-block;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  border-width: 2px;
+  padding: 0.9rem;
+  border-style: solid;
+  border-radius: 50%;
+  color: var(--fluorescent-cyan);
+  transition: 500ms ease;
+}
+
+.info-about-me .icons .list-item a:hover {
+  color: var(--rich-black);
+  background-color: var(--fluorescent-cyan);
+}
+
+.info-about-me .icons .list-item .facebook {
+  padding-left: 17px;
+}
+
+a button,
+.btn {
+  background-color: var(--electric-blue);
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+  border: none;
+  color: var(--charcoal);
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  animation: glowing 4s infinite;
+  transition: 2s ease-in-out;
+}
+
+a button:hover,
+.btn:hover,
+a button:focus,
+.btn:focus {
+  animation: stop 2s;
+  transition: all;
+}
+
+#cursor {
+  background-color: white;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 10;
+}
+
+.info-about-me {
+  animation: starting-animation 3s;
+}
+
+.image-container img {
+  animation: glow 4s infinite linear, movement 4s infinite ease-in-out,
+    starting-image 2s;
+}
+
+.info-about-me h1 {
+  animation: starting-heading 2s;
+}
+
+.info-about-me p:nth-child(4) {
+  animation: starting-paragraph 2s;
+}
+
+.info-about-me p #text-effect::before {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: var(--word-element-length);
+  background-color: var(--rich-black);
+  border-left: 5px solid rgb(0, 166, 255);
+  animation: text-effect 4s steps(var(--word-length)) infinite;
+}
