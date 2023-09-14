@@ -1,0 +1,8 @@
+@media (min-width: 1500px) {
+  #home {
+    flex-wrap: nowrap;
+  }
+  #home img {
+    width: 500px;
+  }
+}

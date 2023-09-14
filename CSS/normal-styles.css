@@ -13,7 +13,7 @@
   background-color: var(--charcoal);
 }
 
-.about-info {
+.show .about-info {
   display: flex;
   flex-direction: column;
   width: 30vw;
@@ -58,7 +58,7 @@
   margin: 4rem 0 0 10px;
 }
 
-#about .image-container img {
+#about.show .image-container img {
   animation: glow 4s infinite linear, about-img 2s;
 }
 
@@ -269,11 +269,18 @@
 }
 
 .card:nth-child(1) {
-  background-image: url("../images/3.jpg");
+  background-image: url("../images/weather-app.jpg");
+  background-position: center;
 }
 
 .card:nth-child(2) {
-  background-image: url("../images/2.jpg");
+  background-image: url("../images/real-state-design.jpg");
+  background-position: center;
+}
+
+.card:nth-child(3) {
+  background-image: url("../images/restaurnt-design.jpg");
+  background-position: center;
 }
 
 /* Media Queries */
@@ -488,7 +495,7 @@
     rgba(27, 193, 126, 1) 100%
   );
   background: -webkit-linear-gradient(
- 90deg,
+    90deg,
     rgba(27, 193, 126, 0.7959558823529411) 0%,
     rgba(30, 255, 150, 1) 14%,
     rgba(111, 218, 68, 1) 24%,

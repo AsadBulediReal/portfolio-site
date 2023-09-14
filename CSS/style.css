@@ -16,6 +16,7 @@ html {
   --word-length: 12;
   --word-element-length: 312px;
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
   cursor: none;
 }
 
@@ -42,7 +43,12 @@ button {
 }
 
 section {
-  display: block;
+  opacity: 0;
+  transition: all 250ms;
+}
+
+.show {
+  opacity: 1;
 }
 
 /* scroll bar */
@@ -295,11 +301,11 @@ a button:focus,
   z-index: 10;
 }
 
-.info-about-me {
+.show .info-about-me {
   animation: starting-animation 3s;
 }
 
-.image-container img {
+.show .image-container img {
   animation: glow 4s infinite linear, movement 4s infinite ease-in-out,
     starting-image 2s;
 }

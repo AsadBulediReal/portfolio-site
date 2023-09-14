@@ -4,16 +4,7 @@ const textEffectElement = document.querySelector("#text-effect");
 const cursor = document.querySelector("#cursor");
 const homeSection = document.querySelector("#about");
 const scrollBar = document.querySelector("#progressBar");
-const allSections = document.querySelectorAll("section");
 const serviceSectionCards = document.querySelectorAll("#service-container div");
-
-//
-
-const observer = new IntersectionObserver((entries) => {});
-
-allSections.forEach((section) => {
-  observer.observe(section);
-});
 
 // scroll Effect
 

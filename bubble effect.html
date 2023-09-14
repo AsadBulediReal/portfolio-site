@@ -1,158 +1,165 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-background-color: black
-    }
-
-    .bubble {
-      position: absolute;
-      background-color: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      box-shadow: inset -7px -7px 15px rgba(255, 255, 255, 0.3), 5px 5px 3px rgba(0,0,0,0.07);
-      overflow: hidden;
-      animation: up 12s linear infinite;
-      top: 600px;
-      left: 1000px;
-      cursor: pointer;
-    }
-
-    .bubble:after {
-      content: "";
-      position: absolute;
-      background-color: rgba(255,255,255,0.4);
-      border-radius: 50%;
-      width: 25px;
-      height: 20px;
-      left: 15px;
-      top: 12px;
-      transform: rotate(25deg);
-      filter: blur(8px);
-    }
-
-    .pop {
-      animation: pop 0.5s linear forwards;
-    }
-
-    @keyframes up {
-      to {
-        transform: translateY(-100%);
+  <head>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: black;
       }
-    }
 
-    @keyframes pop {
-      0% {
-        transform: scale(1);
-        opacity: 1;
+      .bubble {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        box-shadow: inset -7px -7px 15px rgba(255, 255, 255, 0.3),
+          5px 5px 3px rgba(0, 0, 0, 0.07);
+        overflow: hidden;
+        animation: up 12s linear infinite;
+        top: 600px;
+        left: 1000px;
+        cursor: pointer;
       }
-      100% {
-        transform: scale(2);
-        opacity: 0;
+
+      .bubble:after {
+        content: "";
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        width: 25px;
+        height: 20px;
+        left: 15px;
+        top: 12px;
+        transform: rotate(25deg);
+        filter: blur(8px);
       }
-    }
-  </style>
-</head>
-<body>
-  <div id="container"></div>
 
-  <script>
-    // Get the container element
-    const container = document.getElementById("container");
+      .pop {
+        animation: pop 0.5s linear forwards;
+      }
 
-    // Set the container dimensions to match the viewport size
-    container.style.width = window.innerWidth - 70 + "px";
-    container.style.height = window.innerHeight - 55 + "px";
+      @keyframes up {
+        to {
+          transform: translateY(-100%);
+        }
+      }
 
-    // Create an array to store the bubbles
-    const bubbles = [];
+      @keyframes pop {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
 
-    // Create a function to generate a random number between min and max
-    function getRandomNumber(min, max) {
-      return Math.random() * (max - min) + min;
-    }
+    <script>
+      // Get the container element
+      const container = document.getElementById("container");
 
-    // Create a Bubble class
-    class Bubble {
-      constructor(x, y, radius, speed) {
-        this.element = document.createElement("div");
-        this.element.className = "bubble";
-        this.element.style.width = radius * 2 + "px";
-        this.element.style.height = radius * 2 + "px";
-        this.element.style.left = x - radius + "px";
-        this.element.style.top = y - radius + "px";
-        this.radius = radius;
-        this.speed = speed;
-        container.appendChild(this.element);
+      // Set the container dimensions to match the viewport size
+      container.style.width = window.innerWidth - 70 + "px";
+      container.style.height = window.innerHeight - 55 + "px";
 
-        this.element.addEventListener("click", () => {
-          this.pop();
+      // Create an array to store the bubbles
+      const bubbles = [];
+
+      // Create a function to generate a random number between min and max
+      function getRandomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      // Create a Bubble class
+      class Bubble {
+        constructor(x, y, radius, speed) {
+          this.element = document.createElement("div");
+          this.element.className = "bubble";
+          this.element.style.width = radius * 2 + "px";
+          this.element.style.height = radius * 2 + "px";
+          this.element.style.left = x - radius + "px";
+          this.element.style.top = y - radius + "px";
+          this.radius = radius;
+          this.speed = speed;
+          container.appendChild(this.element);
+
+          this.element.addEventListener("click", () => {
+            this.pop();
+          });
+        }
+
+        update() {
+          this.element.style.top =
+            parseInt(this.element.style.top) - this.speed + "px";
+        }
+
+        pop() {
+          this.element.classList.add("pop");
+          setTimeout(() => {
+            container.removeChild(this.element);
+            bubbles.splice(bubbles.indexOf(this), 1);
+          }, 500);
+        }
+      }
+
+      // Create a function to animate the bubbles
+      function animate() {
+        bubbles.forEach((bubble) => {
+          bubble.update();
+
+          if (parseInt(bubble.element.style.top) + bubble.radius * 2 < 0) {
+            bubble.pop();
+          }
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      // Create a function to handle mouse clicks
+      function handleClick(event) {
+        const mouseX = event.clientX;
+
+        const mouseY = event.clientY;
+        bubbles.forEach((bubble) => {
+          const rect = bubble.element.getBoundingClientRect();
+          const bubbleX = rect.left + bubble.radius;
+          const bubbleY = rect.top + bubble.radius;
+          const dx = bubbleX - mouseX;
+          const dy = bubbleY - mouseY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < bubble.radius) {
+            bubble.pop();
+          }
         });
       }
 
-      update() {
-        this.element.style.top = parseInt(this.element.style.top) - this.speed + "px";
-      }
+      // Attach the click event listener to the document
+      document.addEventListener("click", handleClick);
 
-      pop() {
-        this.element.classList.add("pop");
-        setTimeout(() => {
-          container.removeChild(this.element);
-          bubbles.splice(bubbles.indexOf(this), 1);
-        }, 500);
-      }
-    }
+      // Start the animation
+      animate();
 
-    // Create a function to animate the bubbles
-    function animate() {
-      bubbles.forEach((bubble) => {
-        bubble.update();
+      // Create bubbles every 1 second if there are less than 10 bubbles
+      document.body.style.overflow = "hidden";
 
-        if (parseInt(bubble.element.style.top) + bubble.radius * 2 < 0) {
-          bubble.pop();
+      setInterval(() => {
+        if (bubbles.length < 10) {
+          const x = getRandomNumber(0, container.offsetWidth);
+          const y = window.innerHeight + 50;
+          const radius = getRandomNumber(35, 55); // Increase the range for bigger bubbles
+          const speed = getRandomNumber(1, 3);
+          const bubble = new Bubble(x, y, radius, speed);
+          bubbles.push(bubble);
         }
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    // Create a function to handle mouse clicks
-    function handleClick(event) {
-      const mouseX = event.clientX;
-     
-const mouseY = event.clientY;
-  bubbles.forEach((bubble) => {
-    const rect = bubble.element.getBoundingClientRect();
-    const bubbleX = rect.left + bubble.radius;
-    const bubbleY = rect.top + bubble.radius;
-    const dx = bubbleX - mouseX;
-    const dy = bubbleY - mouseY;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    if (distance < bubble.radius) {
-      bubble.pop();
-    }
-  });
-}
-
-// Attach the click event listener to the document
-document.addEventListener("click", handleClick);
-
-// Start the animation
-animate();
-
-// Create bubbles every 1 second
-setInterval(() => {
-  const x = getRandomNumber(0, container.offsetWidth);
-  const y = container.offsetHeight;
-  const radius = getRandomNumber(35, 55); // Increase the range for bigger bubbles
-  const speed = getRandomNumber(1, 3);
-  const bubble = new Bubble(x, y, radius, speed);
-  bubbles.push(bubble);
-}, 1000);
-</script>
-</body>
+      }, 1000);
+    </script>
+  </body>
 </html>

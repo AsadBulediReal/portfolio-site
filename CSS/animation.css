@@ -124,13 +124,88 @@
 
 @keyframes about-info-animation {
   0% {
-    transform: translateX(200px) translateY(100px);
+    transform: translateX(200px);
     opacity: 0;
   }
 
   100% {
-    transform: translateX(0), translateY(0);
+    transform: translateX(0px);
     opacity: 1;
   }
 }
 
+#services.show .heading {
+  animation: fade-in-top 2s;
+}
+
+#portfolio.show h1 {
+  animation: fade-in-top 2s;
+}
+
+#contact.show .heading {
+  animation: fade-in-top 2s;
+}
+
+@keyframes fade-in-top {
+  0% {
+    transform: translateY(-120px);
+    opacity: 0;
+  } 
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+#services.show #service-container {
+  animation: fade-in-bottom 2s;
+}
+
+#portfolio.show #card-container {
+  animation: fade-in-bottom 2s;
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+#contact.show .contact-container .pricing-card:nth-child(1) {
+  animation: left-to-right 2s;
+}
+
+@keyframes left-to-right {
+  0% {
+    transform: translatex(-120px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translatex(0px);
+    opacity: 1;
+  }
+}
+
+#contact.show .contact-container .pricing-card:nth-child(2) {
+  animation: right-to-left 2s;
+}
+
+@keyframes right-to-left {
+  0% {
+    transform: translatex(120px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translatex(0px);
+    opacity: 1;
+  }
+}
