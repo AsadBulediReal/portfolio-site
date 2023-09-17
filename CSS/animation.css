@@ -150,7 +150,7 @@
   0% {
     transform: translateY(-120px);
     opacity: 0;
-  } 
+  }
 
   100% {
     transform: translateY(0px);
@@ -207,5 +207,83 @@
   100% {
     transform: translatex(0px);
     opacity: 1;
+  }
+}
+
+.bubble {
+  position: absolute;
+  background-color: rgba(0, 255, 247, 0.438);
+  border-radius: 50%;
+  box-shadow: inset -7px -7px 15px rgba(255, 255, 255, 0.3),
+    5px 5px 3px rgba(0, 0, 0, 0.07);
+  animation: up 12s linear infinite;
+  top: 600px;
+  left: 1000px;
+  cursor: pointer;
+}
+
+.bubble:after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 255, 247, 0.438);
+  border-radius: 50%;
+  width: 25px;
+  height: 20px;
+  left: 15px;
+  top: 12px;
+  transform: rotate(25deg);
+  filter: blur(8px);
+}
+
+.pop {
+  animation: pop 0.5s linear forwards;
+}
+
+@keyframes up {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.pop-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 3rem !important;
+  font-size: 24px;
+  color: #ff5733;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0; /* Start with zero opacity */
+
+  animation-name: popFade; /* Use the popFade animation */
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Keyframes for the popFade animation */
+@keyframes popFade {
+  0% {
+    transform: scale(0.5); /* Start with a smaller size */
+    opacity: 0; /* Start with zero opacity */
+  }
+  80% {
+    transform: scale(1); /* End with the original size */
+    opacity: 1; /* End with full opacity */
+  }
+
+  100% {
+    opacity: 0; /* End with full opacity */
   }
 }

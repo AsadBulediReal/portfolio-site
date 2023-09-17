@@ -2,6 +2,9 @@
 <html>
   <head>
     <style>
+      body {
+        background-color: black;
+      }
       .bubble {
         position: absolute;
         background-color: rgba(255, 255, 255, 0.2);
@@ -95,8 +98,10 @@
         pop() {
           this.element.classList.add("pop");
           setTimeout(() => {
-            container.removeChild(this.element);
-            bubbles.splice(bubbles.indexOf(this), 1);
+            if (container.contains(this.element)) {
+              container.removeChild(this.element);
+              bubbles.splice(bubbles.indexOf(this), 1);
+            }
           }, 500);
         }
       }
