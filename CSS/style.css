@@ -103,13 +103,6 @@ section {
 }
 
 /* nav bar */
-#extra {
-  display: block;
-  height: 50px;
-  width: 50px;
-  margin-bottom: 50px;
-}
-
 #logo {
   text-decoration: none;
   color: white;
@@ -175,6 +168,20 @@ section {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+nav .hamburger-menu {
+  display: none;
+}
+
+.hamburger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-color: white;
+}
 /* hero section */
 
 #home {
@@ -187,7 +194,6 @@ section {
 .image-container img {
   position: relative;
   width: 600px;
-  z-index: 100;
 }
 
 .info-about-me {

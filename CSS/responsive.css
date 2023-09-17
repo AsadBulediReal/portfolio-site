@@ -1,8 +1,278 @@
-@media (min-width: 1500px) {
+@media (max-width: 1700px) {
   #home {
     flex-wrap: nowrap;
   }
   #home img {
     width: 500px;
+    margin-top: 5rem;
+  }
+
+  #about img {
+    width: 500px;
+  }
+
+  section {
+    height: auto !important;
+  }
+
+  #about {
+    height: 100vh !important;
+  }
+  #portfolio h1 {
+    margin-top: 4rem;
+  }
+
+  #card-container {
+    margin-bottom: 4rem;
+  }
+
+  .contact-container {
+    margin-bottom: 8rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  .info-about-me h1 {
+    font-size: 3rem;
+  }
+
+  .info-about-me p:nth-child(1) {
+    font-size: 1.5rem;
+  }
+  .info-about-me p:nth-child(4) {
+    width: 500px;
+    text-align: justify;
+  }
+
+  #home img {
+    width: 450px;
+    margin-top: 5rem;
+  }
+  .container {
+    padding: 1.5rem 5%;
+  }
+
+  .about-info p {
+    font-size: 0.8rem;
+  }
+
+  #about img {
+    width: 400px;
+  }
+}
+
+@media (max-width: 1050px) {
+  nav .hamburger-menu {
+    display: block;
+  }
+
+  nav .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  nav .hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  nav .hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-container {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: var(--rich-black);
+    width: 100%;
+    text-align: center;
+    transition: 0.4s;
+  }
+
+  .nav-item {
+    margin: 16px 0;
+  }
+
+  .nav-container.active {
+    left: 0;
+  }
+
+  .info-about-me {
+    width: 60%;
+  }
+
+  .info-about-me h1 {
+    font-size: 2rem;
+  }
+
+  .info-about-me p:nth-child(1) {
+    font-size: 1rem;
+  }
+  .info-about-me p:nth-child(3) {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .info-about-me p #text-effect::before {
+    height: 30px;
+  }
+  .info-about-me p:nth-child(4) {
+    width: 400px;
+    font-size: 0.8rem;
+  }
+
+  #home img {
+    width: 400px;
+  }
+
+  #about img {
+    width: 350px;
+  }
+
+  .about-info h1 {
+    font-size: 2rem;
+  }
+
+  .about-info h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  #home {
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  #about {
+    height: auto !important;
+    padding: 4rem;
+  }
+
+  .about-info p {
+    font-size: 0.6rem;
+  }
+
+  #services.show .heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    scroll-padding-top: 2rem;
+  }
+
+  #card-container .card {
+    width: 25rem;
+  }
+
+  .info-about-me {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #about {
+    flex-direction: column;
+  }
+
+  .show .about-info {
+    width: auto;
+  }
+
+  .about-info p {
+    font-size: 0.8rem;
+  }
+  .about-info a {
+    margin: 20px auto 0 auto;
+  }
+
+  #service-container div {
+    width: auto;
+    height: auto;
+  }
+
+  #service-container div a {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .info-about-me h1,
+  .info-about-me p {
+    width: auto !important;
+  }
+
+  .info-about-me p:nth-child(3) {
+    font-size: 1rem;
+  }
+
+  .info-about-me .icons .list-item .facebook {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .info-about-me .icons .list-item a {
+    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .fa-brands,
+  .fab {
+    font-size: 15px;
+  }
+
+  #home img {
+    width: 300px !important;
+  }
+
+  .about-info p {
+    font-size: 0.6rem !important;
+  }
+
+  #about img {
+    width: 300px;
+  }
+
+  #service-container div {
+    width: auto !important;
+  }
+
+  #services.show .heading,
+  #service-container div h1 {
+    font-size: 2rem;
+  }
+
+  #service-container div p {
+    font-size: 0.8rem;
+    text-align: start;
+  }
+
+  #portfolio h1,
+  #contact h1 {
+    font-size: 2.5rem;
+  }
+
+  #card-container .card {
+    width: 20rem;
+    height: 22rem;
+  }
+
+  .pricing-card:nth-child(1) .card-type,
+  .pricing-card:nth-child(2) .card-type {
+    display: none !important;
+  }
+}
+
+@media (max-width: 350px) {
+  #card-container .card {
+    width: 18rem;
+  }
+  .pricing-card {
+    scale: 0.8;
   }
 }
