@@ -61,14 +61,16 @@
     transform: translateY(0px);
   }
 }
-
 @keyframes text-effect {
+  0% {
+    transform: translateX(0);
+  }
   50%,
   60% {
     transform: translateX(var(--word-element-length));
   }
   100% {
-    transform: translateX(0px);
+    transform: translateX(0);
   }
 }
 
@@ -220,6 +222,7 @@
   top: 600px;
   left: 1000px;
   cursor: pointer;
+  z-index: 100;
 }
 
 .bubble:after {
@@ -256,34 +259,22 @@
   }
 }
 
-.pop-text {
+.explosion {
   position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 3rem !important;
-  font-size: 24px;
-  color: #ff5733;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  opacity: 0; /* Start with zero opacity */
-
-  animation-name: popFade; /* Use the popFade animation */
-  animation-duration: 0.7s;
-  animation-timing-function: ease-in-out;
+  width: 100%;
+  height: 100%;
+  background-color: #ff5722;
+  border-radius: 50%;
+  animation: explosion 1s ease-out;
 }
 
-/* Keyframes for the popFade animation */
-@keyframes popFade {
+@keyframes explosion {
   0% {
-    transform: scale(0.5); /* Start with a smaller size */
-    opacity: 0; /* Start with zero opacity */
+    transform: scale(0.5);
+    opacity: 1;
   }
-  80% {
-    transform: scale(1); /* End with the original size */
-    opacity: 1; /* End with full opacity */
-  }
-
   100% {
-    opacity: 0; /* End with full opacity */
+    transform: scale(3);
+    opacity: 0;
   }
 }

@@ -193,7 +193,7 @@ nav .hamburger-menu {
 
 .image-container img {
   position: relative;
-  width: 600px;
+  width: 500px;
 }
 
 .info-about-me {
@@ -224,13 +224,15 @@ nav .hamburger-menu {
 
 .info-about-me p #text-effect {
   color: var(--fluorescent-cyan);
-  margin-left: 0.5rem;
 }
 
 .info-about-me p:nth-child(4) {
-  width: 40rem;
+  width: 33rem;
   margin-bottom: 2rem;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: 600;
+ 
 }
 
 .info-about-me .icons {

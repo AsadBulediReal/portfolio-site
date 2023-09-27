@@ -8,7 +8,7 @@ const observer = new IntersectionObserver(
       section.target.classList.toggle("show", section.isIntersecting);
     });
   },
-  { threshold: 0 }
+  { threshold: 0.2 }
 );
 
 allSections.forEach((section) => {
@@ -63,37 +63,19 @@ class Bubble {
   }
 
   pop() {
-    const popText = document.createElement("div");
-    popText.textContent = "Popped";
-    popText.classList.add("pop-text");
-
-    // Position the text outside the bubble
-    popText.style.position = "absolute";
-    popText.style.left = parseInt(this.element.style.left) + "px";
-    popText.style.top = parseInt(this.element.style.top) - 20 + "px";
-
-    container.appendChild(popText);
-
+    const explosion = document.createElement("div");
     this.element.classList.add("pop");
+    explosion.classList.add("explosion");
+    this.element.appendChild(explosion);
+
+    // Add a class to trigger the click animation
+    this.element.classList.add("clicked");
     setTimeout(() => {
       if (container.contains(this.element)) {
         container.removeChild(this.element);
         bubbles.splice(bubbles.indexOf(this), 1);
       }
-      if (container.contains(popText)) {
-        setTimeout(() => {
-          if (container.contains(popText)) {
-            container.removeChild(popText);
-          }
-        }, 500); // Remove the text after 0.5 seconds
-      }
     }, 500);
-
-    setTimeout(() => {
-      if (container.contains(popText)) {
-        container.removeChild(popText);
-      }
-    }, 2000);
   }
 }
 
