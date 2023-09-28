@@ -139,6 +139,14 @@
 }
 
 @media (max-width: 800px) {
+  :root {
+    cursor: pointer !important;
+  }
+  a,
+  .hide-cursor,
+  button {
+    cursor: pointer !important;
+  }
   #home {
     flex-wrap: wrap;
     margin: 0;
@@ -191,8 +199,12 @@
   }
 
   #service-container div {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  #service-container div p.big-text {
+    padding: 2rem 0;
   }
 
   #service-container div a {
@@ -231,15 +243,11 @@
   }
 
   .about-info p {
-    font-size: 0.6rem !important;
+    font-size: 0.9rem !important;
   }
 
   #about img {
     width: 300px;
-  }
-
-  #service-container div {
-    width: auto !important;
   }
 
   #services.show .heading,
@@ -249,7 +257,7 @@
 
   #service-container div p {
     font-size: 0.8rem;
-    text-align: start;
+    padding: 1rem 0;
   }
 
   #portfolio h1,
@@ -266,13 +274,29 @@
   .pricing-card:nth-child(2) .card-type {
     display: none !important;
   }
+
+  #service-container div p.big-text {
+    font-size: 1.5rem;
+  }
+
+  .card img {
+    width: auto;
+    height: 110%;
+  }
 }
 
 @media (max-width: 350px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
   #card-container .card {
     width: 18rem;
   }
   .pricing-card {
     scale: 0.8;
+  }
+  #portfolio.show h1 {
+    font-size: 1.8rem;
   }
 }

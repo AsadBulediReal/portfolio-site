@@ -89,21 +89,23 @@ serviceSectionCards.forEach((card) => {
 
 // Mouse Effect
 
-document.addEventListener("mousemove", (event) => {
-  cursor.style.left = event.clientX + "px";
-  cursor.style.top = event.clientY + "px";
-  cursor.style.width = event.target.offsetHeight + 30 + "px";
-  cursor.style.height = event.target.offsetHeight + 30 + "px";
-  cursor.style.mixBlendMode = "difference";
-  if (event.target.classList.contains("mouse-e")) {
-    cursor.style.width = 50 + "px";
-    cursor.style.height = 50 + "px";
-    return;
-  }
-  if (event.target.localName === "img") {
-    cursor.style.mixBlendMode = "overlay";
-  }
-});
+if (window.innerWidth > 750) {
+  document.addEventListener("mousemove", (event) => {
+    cursor.style.left = event.clientX + "px";
+    cursor.style.top = event.clientY + "px";
+    cursor.style.width = event.target.offsetHeight + 30 + "px";
+    cursor.style.height = event.target.offsetHeight + 30 + "px";
+    cursor.style.mixBlendMode = "difference";
+    if (event.target.classList.contains("mouse-e")) {
+      cursor.style.width = 50 + "px";
+      cursor.style.height = 50 + "px";
+      return;
+    }
+    if (event.target.localName === "img") {
+      cursor.style.mixBlendMode = "overlay";
+    }
+  });
+}
 
 serviceSectionCards.forEach((card) => {
   let borderWidth = 0;

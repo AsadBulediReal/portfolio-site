@@ -12,7 +12,11 @@ const observer = new IntersectionObserver(
 );
 
 allSections.forEach((section) => {
-  observer.observe(section);
+  if (window.innerWidth < 750) {
+    section.classList.add("show");
+  } else {
+    observer.observe(section);
+  }
 });
 
 const onClick = () => {
@@ -119,13 +123,19 @@ animate();
 
 // Create bubbles every 1 second if there are less than 10 bubbles
 
+const createBubble = () => {
+  const x = getRandomNumber(0, container.offsetWidth);
+  const y = document.body.scrollHeight + 140;
+  const radius = getRandomNumber(35, 55); // Increase the range for bigger bubbles
+  const speed = getRandomNumber(1, 3);
+  const bubble = new Bubble(x, y, radius, speed);
+  bubbles.push(bubble);
+};
+
 setInterval(() => {
-  if (bubbles.length < 20) {
-    const x = getRandomNumber(0, container.offsetWidth);
-    const y = document.body.scrollHeight + 140;
-    const radius = getRandomNumber(35, 55); // Increase the range for bigger bubbles
-    const speed = getRandomNumber(1, 3);
-    const bubble = new Bubble(x, y, radius, speed);
-    bubbles.push(bubble);
+  if (window.innerWidth < 750 && bubbles.length <= 8) {
+    createBubble();
+  } else if (window.innerWidth > 750 && bubbles.length <= 16) {
+    createBubble();
   }
-}, 1000);
+}, 2000);
