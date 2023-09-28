@@ -32,6 +32,9 @@
 }
 
 @media (max-width: 1250px) {
+  img{
+    height: auto;
+  }
   .info-about-me h1 {
     font-size: 3rem;
   }
