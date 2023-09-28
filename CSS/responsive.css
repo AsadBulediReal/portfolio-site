@@ -59,6 +59,10 @@
   #about img {
     width: 400px;
   }
+
+  img {
+    height: auto !important;
+  }
 }
 
 @media (max-width: 1050px) {
@@ -133,7 +137,7 @@
     font-size: 2rem;
   }
 
-  .about-info h3 {
+  .about-info h2 {
     font-size: 1.2rem;
   }
 }

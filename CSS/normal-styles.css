@@ -30,7 +30,7 @@
   color: var(--fluorescent-cyan);
 }
 
-.about-info h3 {
+.about-info h2 {
   font-size: 1.5rem;
   width: 15rem;
   margin-bottom: 1.5rem;
@@ -43,13 +43,13 @@
 }
 
 .about-info p,
-.about-info h3,
+.about-info h2,
 .about-info h1 {
   transition: all 500ms ease-in-out;
 }
 
 .about-info p:hover,
-.about-info h3:hover,
+.about-info h2:hover,
 .about-info h1:hover {
   transform: scale(1.2);
   text-shadow: 7px 2px 6px black;
