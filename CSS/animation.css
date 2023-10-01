@@ -70,7 +70,7 @@
     transform: translateX(var(--word-element-length));
   }
 
-  90%,
+  80%,
   100% {
     transform: translateX(0);
   }
