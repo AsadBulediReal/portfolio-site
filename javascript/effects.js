@@ -1,10 +1,11 @@
 const cssRoot = document.documentElement;
 const btnLists = document.querySelectorAll(".btn");
-const textEffectElement = document.querySelector("#text-effect");
+const textEffectElement = document.querySelector(".text");
 const cursor = document.querySelector("#cursor");
 const homeSection = document.querySelector("#about");
 const scrollBar = document.querySelector("#progressBar");
 const serviceSectionCards = document.querySelectorAll("#service-container div");
+const addTextEffect = document.querySelector(".text");
 
 // scroll Effect
 
@@ -42,7 +43,7 @@ const textEffect = () => {
 
     cssRoot.style.setProperty("--word-element-length", elementLength + "px");
     cssRoot.style.setProperty("--word-length", word.length);
-  }, 4000);
+  }, 4050);
   setTimeout(function () {
     let word = "Graphic Designer";
     textEffectElement.innerHTML = word;
@@ -50,7 +51,7 @@ const textEffect = () => {
 
     cssRoot.style.setProperty("--word-element-length", elementLength + "px");
     cssRoot.style.setProperty("--word-length", word.length);
-  }, 8000);
+  }, 8050);
 
   setTimeout(function () {
     let word = "Freelancer";
@@ -59,7 +60,7 @@ const textEffect = () => {
 
     cssRoot.style.setProperty("--word-element-length", elementLength + "px");
     cssRoot.style.setProperty("--word-length", word.length);
-  }, 12000);
+  }, 12050);
 
   setTimeout(function () {
     let word = "Video Editor";
@@ -68,11 +69,12 @@ const textEffect = () => {
 
     cssRoot.style.setProperty("--word-element-length", elementLength + "px");
     cssRoot.style.setProperty("--word-length", word.length);
-  }, 16000);
+  }, 16050);
 };
 
 textEffect();
-setInterval(textEffect, 20000);
+addTextEffect.setAttribute("id", "text-effect");
+setInterval(textEffect, 20050);
 
 // On Hover Disable Any Effect
 

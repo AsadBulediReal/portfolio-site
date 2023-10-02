@@ -332,5 +332,5 @@ a button:focus,
   width: var(--word-element-length);
   background-color: var(--rich-black);
   border-left: 5px solid rgb(0, 166, 255);
-  animation: text-effect 4s steps(var(--word-length)) infinite;
+  animation: text-effect 4.05s steps(var(--word-length)) infinite;
 }
